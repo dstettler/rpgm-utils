@@ -1,0 +1,11 @@
+These are some tiny shell scripts I use to launch RPGMaker and WolfRPG games on my Linux machine.
+
+RPGMakerMV games are hit or miss with rpgmv-run and rpgmv-run-web, for troubleshooting check out 
+this pastebin I originally used when I was figuring everything out: https://pastebin.com/21Yi6vnt
+
+Deps:
+electron
+php
+unzip
+wine
+winetricks

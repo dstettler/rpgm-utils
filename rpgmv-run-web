@@ -1,0 +1,8 @@
+#!/bin/bash
+
+echo $1
+cd "$1/www"
+
+php -S 127.0.0.1:3333 &
+electron --app=http://127.0.0.1:3333
+killall php

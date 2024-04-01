@@ -1,0 +1,14 @@
+#!/bin/bash
+
+source vars
+
+if [ "$#" -ne 1 ]; then
+    echo "Illegal number of parameters"
+    exit
+fi
+
+
+echo $1
+cd "$1"
+
+WINEPREFIX=~/.local/share/wineprefixes/$PREFIX wine Game.exe

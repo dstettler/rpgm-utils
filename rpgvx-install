@@ -1,0 +1,28 @@
+#!/bin/bash
+
+source vars
+
+PREFIXDIR=$(readlink -f ~/.local/share/wineprefixes/$PREFIX)
+
+if ! [ -f "$VXRTP" ]; then
+  echo "Missing RTP for RPGMaker VX"
+  exit
+fi
+
+if ! [ -f "$ACERTP" ]; then
+  echo "Missing RTP for RPGMaker VX Ace"
+  exit
+fi
+
+if [ -d "$PREFIXDIR" ]; then
+  echo "Prefix already exists"
+else
+  echo "Prefix does not exist, creating..."
+  winetricks prefix=$PREFIX d3dcompiler_43 corefonts
+fi
+
+unzip vx_rtp102e.zip
+unzip RPGVXAce_RTP.zip
+
+WINEPREFIX=~/.local/share/wineprefixes/$PREFIX wine "RPGVX_RTP/Setup.exe"
+WINEPREFIX=~/.local/share/wineprefixes/$PREFIX wine "RTP100/Setup.exe"
